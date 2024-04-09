@@ -1,4 +1,4 @@
-import IContact from '../types/contact'
+import IContact from '../types/contact.js'
 import {model, Schema} from 'mongoose'
 
 

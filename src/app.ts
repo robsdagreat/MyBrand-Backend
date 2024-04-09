@@ -2,7 +2,10 @@ import express, {Express} from 'express'
 import cors from 'cors'
 import mongoose from 'mongoose';
 import dotenv from 'dotenv'
-import blogRouter from './routes/blogs.js'
+import blogRouters from './routes/blogs.js'
+import userRoutes from './routes/user.js'
+import contactRoutes from './routes/contact.js'
+import adminRoutes from './routes/admin.js'
 import swaggerUi from "swagger-ui-express";
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerOptions from './swagger.js';
@@ -28,7 +31,7 @@ app.use(express.urlencoded({extended: true}))
      
      
 
-app.use("/api", blogRouter);
+app.use("/api", blogRouters, userRoutes, contactRoutes, adminRoutes);
  
       
 

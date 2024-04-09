@@ -1,5 +1,5 @@
 import { timeStamp } from "console";
-import { IBlog } from "../types/blogs";
+import { IBlog } from "../types/blogs.js";
 import { Schema, model } from "mongoose";
 
 const blogSchema: Schema= new Schema({
