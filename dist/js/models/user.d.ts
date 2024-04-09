@@ -23,8 +23,8 @@
 /// <reference types="mongoose/types/virtuals.js" />
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype.js" />
-import { IBlog } from "../types/blogs.js";
-declare const _default: import("mongoose").Model<IBlog, {}, {}, {}, import("mongoose").Document<unknown, {}, IBlog> & IBlog & {
+import IUser from '../types/user.js';
+declare const _default: import("mongoose").Model<IUser, {}, {}, {}, import("mongoose").Document<unknown, {}, IUser> & IUser & {
     _id: import("mongoose").Types.ObjectId;
 }, any>;
 export default _default;
