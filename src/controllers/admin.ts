@@ -1,8 +1,5 @@
-import IAdmin from "../types/admin.js";
-import Admin from '../models/admin.js'
 import { Request, Response, NextFunction } from "express";
 import jwt ,{ JwtPayload } from "jsonwebtoken";
-import bcrypt from 'bcrypt'
 import { jwtSecretKey } from "../utils.js";
 
 
