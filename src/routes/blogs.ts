@@ -9,6 +9,10 @@ import {
   getAllBlogs
 } from '../controllers/blogs.js';
 
+import authenticateUser from '../middlewares/authenticate.js';
+import AuthenticateAdmin from '../middlewares/adminAuth.js';
+
+
 
 const blogRouter: Router = express.Router();
 
@@ -16,17 +20,17 @@ blogRouter.use(express.json());
 
 blogRouter.get("/blog/:id", getBlog);
 
-blogRouter.post('/blog/:id/comment', addCommentToBlog);
+blogRouter.post('/blog/:id/comment', authenticateUser, addCommentToBlog);
 
-blogRouter.post('/blog/:id/likes', likeBlog);
-
-
-blogRouter.post("/blog/add", createBlog);
+blogRouter.post('/blog/:id/likes', authenticateUser, likeBlog);
 
 
-blogRouter.delete("/blog/delete/:id", deleteBlog);
+blogRouter.post("/blog/add", AuthenticateAdmin, createBlog);
 
-blogRouter.put("/blog/edit/:id", updateBlog);
+
+blogRouter.delete("/blog/delete/:id", AuthenticateAdmin, deleteBlog);
+
+blogRouter.put("/blog/edit/:id",AuthenticateAdmin, updateBlog);
 
 
 blogRouter.get("/blogs" , getAllBlogs)
