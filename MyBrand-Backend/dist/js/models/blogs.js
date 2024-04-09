@@ -1,32 +1,24 @@
-import { timeStamp } from "console";
-import { IBlog } from "../types/blogs.js";
 import { Schema, model } from "mongoose";
-
-const blogSchema: Schema= new Schema({
-    author:{
+const blogSchema = new Schema({
+    author: {
         type: String,
         required: true
-
     },
-    title:{
+    title: {
         type: String,
         required: true
-
     },
-    story:{
+    story: {
         type: String,
         required: true
-    
     },
-    image:{
+    image: {
         type: String,
         required: true
-
     },
-    date:{
+    date: {
         type: Date,
         default: Date.now,
-
     },
     likes: {
         type: [String],
@@ -40,10 +32,7 @@ const blogSchema: Schema= new Schema({
             },
         ],
         default: [],
-    },                                
-},
-{timestamps: true}
-)    
-
-
-export default model<IBlog>("blogs", blogSchema)
+    },
+}, { timestamps: true });
+export default model("blogs", blogSchema);
+//# sourceMappingURL=blogs.js.map

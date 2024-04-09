@@ -1,4 +1,4 @@
-import IAdmin from '../types/admin'
+import IAdmin from '../types/admin.js'
 import {model, Schema} from 'mongoose'
 
 const adminSchema: Schema = new Schema({
