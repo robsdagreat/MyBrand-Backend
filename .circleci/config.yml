@@ -1,9 +1,9 @@
 version: 2.1
+
 jobs:
   build:
     docker:
       - image: cimg/node:21.7.2-browsers
-
     steps:
       - checkout
       - run:
@@ -15,34 +15,6 @@ jobs:
       - run:
           name: Build app
           command: yarn build
-
-  store_test_results:
-    docker:
-      - image: cimg/node:21.7.2-browsers
-
-    steps:
-      - run:
-          name: Run Tests
-          command: yarn testversion: 2.1
-jobs:
-  build:
-    docker:
-      - image: cimg/node:21.7.2-browsers
-    working_directory: ~/project/Mybrand-API/MyBrand-Backend
-    steps:
-      - checkout:
-          path: ~/project
-      - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
-      - run:
-          name: Install Dependencies
-          command: yarn
-      - run:
-          name: Build app
-          command: yarn build
-      - store_test_results:
-          path: test-results
 
   test:
     docker:
@@ -68,11 +40,5 @@ workflows:
       - store_test_results:
           path: ~/project/test-results
           destination: test-results
-
-workflows:
-  build_and_test:
-    jobs:
-      - build
-      - store_test_results:
           requires:
             - build
