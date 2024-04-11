@@ -17,7 +17,7 @@ describe('Admin login', () => {
 
   it('should login an admin with valid credentials', (done) => {
     request(app)
-      .post('/api/v1/admin/login')
+      .post('/api/admin/login')
       .send({
         email: process.env.ADMIN,
         password: process.env.ADMINPASS,
@@ -36,7 +36,7 @@ describe('Admin login', () => {
 
   it('should return an error for login with invalid credentials', (done) => {
     request(app)
-      .post('/api/v1/admin/login')
+      .post('/api/admin/login')
       .send({
         email: 'invalid@example.com',
         password: 'invalidpassword',
@@ -54,7 +54,7 @@ describe('Admin login', () => {
 
   it('should return an error when email or password is missing', (done) => {
     request(app)
-      .post('/api/v1/admin/login')
+      .post('/api/admin/login')
       .send({})
       .expect(400)
       .end((err, res) => {

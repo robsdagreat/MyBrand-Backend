@@ -63,7 +63,7 @@ router.get('/user/:id', getUserById);
  *       '500':
  *         description: Server error
  */
-router.post('/singup', createUser);
+router.post('/signup', createUser);
 
 /**
  * @swagger
@@ -100,7 +100,7 @@ router.post('/singup', createUser);
  *       '500':
  *         description: Server error
  */
-router.put('/edit/:id', updateUser);
+router.put('/user/edit/:id', updateUser);
 
 /**
  * @swagger
@@ -122,7 +122,7 @@ router.put('/edit/:id', updateUser);
  *       '500':
  *         description: Server error
  */
-router.delete('/delete/:id', deleteUser);
+router.delete('/user/delete/:id', deleteUser);
 
 /**
  * @swagger

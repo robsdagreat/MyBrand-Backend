@@ -262,7 +262,7 @@ blogRouter.put("/blog/edit/:id", AuthenticateAdmin, updateBlog);
  *         
  */
 
-
+        
 blogRouter.get("/blogs" , getAllBlogs)
 
 

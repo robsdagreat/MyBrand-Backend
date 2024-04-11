@@ -36,7 +36,7 @@ describe('Blog endpoints', () => {
             return done(error);
         }
         request(app)
-            .post('/api/v1/blogs/add')
+            .post('/api/blog/add')
             .set({ Authorization: `Bearer ${token}` })
             .send(requestBody)
             .expect(200)
@@ -53,7 +53,7 @@ describe('Blog endpoints', () => {
     it('should return a single blog by ID', function (done) {
         this.timeout(15000);
         request(app)
-            .get(`/api/v1/blogs/blog/${blogId}`)
+            .get(`/api/blog/${blogId}`)
             .set({ Authorization: `Bearer ${token}` })
             .expect(200)
             .end((err, res) => {
@@ -77,7 +77,7 @@ describe('Blog endpoints', () => {
             return done(error);
         }
         request(app)
-            .put(`/api/v1/blogs/edit/${blogId}`)
+            .put(`/api/blog/edit/${blogId}`)
             .set({ Authorization: `Bearer ${token}` })
             .send(updateBody)
             .expect(200)
@@ -93,7 +93,7 @@ describe('Blog endpoints', () => {
     it('should delete a blog', function (done) {
         this.timeout(15000);
         request(app)
-            .delete(`/api/v1/blogs/delete/${blogId}`)
+            .delete(`/api/blog/delete/${blogId}`)
             .set({ Authorization: `Bearer ${token}` })
             .expect(200)
             .end((err, res) => {

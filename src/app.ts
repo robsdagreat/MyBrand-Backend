@@ -11,7 +11,7 @@ import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerOptions from './swagger.js';
 
 
-
+     
 
 dotenv.config();
 
@@ -33,7 +33,7 @@ app.use(express.urlencoded({extended: true}))
 
 app.use("/api", blogRouters, userRoutes, contactRoutes, adminRoutes);
  
-      
+             
 
 const uri: string = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@cluster10.p45jk48.mongodb.net/?retryWrites=true&w=majority&appName=Cluster10`
 

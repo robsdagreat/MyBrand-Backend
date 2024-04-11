@@ -1,0 +1,47 @@
+{
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "joi": "^17.12.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.3.1",
+    "openapi3-ts": "^4.3.1",
+    "supertest": "^6.3.4",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.4"
+  },
+  "name": "MyBrand-API",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": "https://github.com/robsdagreat/MyBrand-Backend.git",
+  "author": "Robs",
+  "license": "MIT",     
+  "scripts": {
+    "build": "tsc",
+    "start": "concurrently \"tsc -w\" \"nodemon dist/js/app.js\"",
+    "test": "mocha dist/js/test/*.test.js"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/chai": "^4.3.14",
+    "@types/cors": "^2.8.17",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/mocha": "^10.0.6",
+    "@types/mongoose": "^5.11.97",
+    "@types/supertest": "^6.0.2",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.6",
+    "chai": "^5.1.0",
+    "concurrently": "^8.2.2",
+    "jsdoc": "^4.0.2",
+    "mocha": "^10.4.0",
+    "nodemon": "^3.1.0"
+  }
+}
