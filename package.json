@@ -24,7 +24,7 @@
   "scripts": {
     "build": "tsc",
     "start": "concurrently \"tsc -w\" \"nodemon dist/js/app.js\"",
-    "test": "mocha dist/js/test/*.test.js"
+    "test": "./node_modules/.bin/mocha dist/js/test/*.test.js"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
