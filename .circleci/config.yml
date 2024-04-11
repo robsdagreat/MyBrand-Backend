@@ -37,8 +37,3 @@ workflows:
       - test:
           requires:
             - build
-      - store_test_results:
-          path: ~/project/test-results
-          destination: test-results
-          requires:
-            - build
