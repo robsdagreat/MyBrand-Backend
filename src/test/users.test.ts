@@ -25,7 +25,7 @@ describe('Users endpoints', () => {
 
   it('should fetch a single user by ID', (done) => {
     request(app)
-      .get(`/api/v1/users/user/${userId}`)
+      .get(`/api/user/${userId}`)
       .expect(200)
       .end((err, res) => {
         expect(res.body).to.be.an('object');
@@ -37,7 +37,7 @@ describe('Users endpoints', () => {
   it('should create a new user or return conflict if email exists', function(done) {
     this.timeout(15000);
     request(app)
-      .post('/api/v1/users/create')
+      .post('/api/signup')
       .send({
         username: 'newuser',
         email: 'newuniqueemail@example.com',
@@ -57,7 +57,6 @@ describe('Users endpoints', () => {
           expect(res.body).to.have.property('message').equal('Email address already associated with an account!');
           done();
         } else {
-          // Unexpected response
           done(new Error(`Unexpected response status: ${res.status}`));
         }
       });
@@ -65,7 +64,7 @@ describe('Users endpoints', () => {
 
   it('should delete a user', (done) => {
     request(app)
-      .delete(`/api/v1/users/delete/${userId}`)
+      .delete(`/api/user/delete/${userId}`)
       .expect(200)
       .end((err, res) => {
         expect(res.body).to.be.an('object');
@@ -76,7 +75,7 @@ describe('Users endpoints', () => {
 
   it('should update a user', (done) => {
     request(app)
-      .put(`/api/v1/users/edit/${userId}`)
+      .put(`/api/user/edit/${userId}`)
       .send({
         username: 'updated name',
         email: 'updated@example.com',
@@ -100,10 +99,10 @@ describe('Users endpoints', () => {
     this.timeout(15000)
     
     request(app)
-      .post('/api/v1/users/login')
+      .post('/api/login')
       .send({
         email: 'newuniqueemail@example.com',
-        password: 'NewPassword!23', 
+        password: 'NewPassword!23' 
       })
       .expect(200)
       .end((err, res) => {
@@ -120,7 +119,7 @@ describe('Users endpoints', () => {
 
   it('should handle login failure with invalid credentials', (done) => {
     request(app)
-      .post('/api/v1/users/login')
+      .post('/api/login')
       .send({
         email: 'invalid@example.com',
         password: 'invalidPassword',

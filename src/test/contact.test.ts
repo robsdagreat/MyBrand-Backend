@@ -8,7 +8,7 @@ describe('Contact Form', () => {
     it('should send a message successfully with valid input', function(done){
     this.timeout(15000)
         request(app)
-            .post('/api/v1/contact/queries')
+            .post('/api/contact')
             .send({name: 'John Doe', email: 'johndoe@example.com',message: 'This is a test message'})
             .expect(200)
             .end((err, res) => {
@@ -29,7 +29,7 @@ describe('Contact Form', () => {
         };
       
         request(app)
-          .post('/api/v1/contact/queries')
+          .post('/api/contact')
           .send({ name: 'John Doe', email: 'johndoe@example.com', message: 'This is a test message' })
           .expect(500)
           .end((err, res) => {
@@ -37,7 +37,7 @@ describe('Contact Form', () => {
               return done(err);
             }
             expect(res.body).to.have.property('message').equal('Server Error');
-            Message.create = originalCreate; // Restore the original create function
+            Message.create = originalCreate; 
             done();
           });
       });
