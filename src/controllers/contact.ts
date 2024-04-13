@@ -17,10 +17,10 @@ const contactForm = async (req: Request, res: Response): Promise<void> => {
         res.status(400).json({ message: error.details[0].message });
         return;
       }
-  
+        
       const savedMessage = await Message.create(value);
       res.status(200).json({ message: 'Query sent successfully, Thank you!', query: savedMessage });
-    } catch (error) {
+    } catch (error) {      
       console.error(error);
       res.status(500).json({ message: 'Server Error' });
     }

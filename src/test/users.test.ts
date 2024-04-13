@@ -1,7 +1,6 @@
 import { expect } from 'chai';
 import request from 'supertest';
 import app from '../app.js';
-import mongoose from 'mongoose';
 import User from '../models/user.js';
 
 describe('Users endpoints', () => {
