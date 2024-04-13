@@ -17,7 +17,7 @@ const swaggerOptions = {
         description: 'Local Development Server',
       },
       {
-        url: 'https://mybrand-backend-2-hey7.onrender.com',
+        url: 'https://mybrand-backend-s9f7.onrender.com/',
         description: 'Production Server',
       }
     ],
