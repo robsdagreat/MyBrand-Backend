@@ -6,6 +6,7 @@ import { jwtSecretKey } from "../utils.js";
 interface AuthenticatedRequest extends Request{
     userId?: string;
     username?: string;
+    role?: string
 }
 
 
@@ -28,6 +29,7 @@ const authenticateUser= async(req: AuthenticatedRequest, res: Response, next: Ne
 
         req.userId = decoded.userId;
         req.username= decoded.name;
+        req.role= decoded.role;
 
      next();        
     } catch(error){

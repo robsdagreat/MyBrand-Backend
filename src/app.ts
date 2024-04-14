@@ -17,7 +17,9 @@ dotenv.config();
 
 
 const app: Express= express();
-app.use(cors());
+app.use(cors({
+    origin: ["https://mybrand-backend-s9f7.onrender.com", "http://127.0.0.1:5500"]
+  }));
    
 const PORT: string | number = 3000;
 

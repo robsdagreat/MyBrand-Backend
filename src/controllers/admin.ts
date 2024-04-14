@@ -22,7 +22,7 @@ const adminLogin = async (req: Request, res: Response): Promise<void> => {
         }
 
         
-        const token = jwt.sign({ email, isAdmin: true, role: admin }, jwtSecretKey, { expiresIn: '1h' });
+        const token = jwt.sign({ email, isAdmin: true}, jwtSecretKey, { expiresIn: '1h' });
         res.status(200).json({ message: 'Welcome back Admin!', token });
         return;
     } catch (error) {
