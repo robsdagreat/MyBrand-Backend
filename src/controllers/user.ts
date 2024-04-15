@@ -158,7 +158,7 @@ const loginUser = async (req: Request, res: Response): Promise<void> => {
       return;
     }
 
-    const token = jwt.sign({ name: user.username, userId: user._id, role: user }, jwtSecretKey, {
+    const token = jwt.sign({ name: user.username, userId: user._id, isAdmin: false }, jwtSecretKey, {
       expiresIn: '1h',
     });
     res.status(200).json({ message: 'Logged in successfully', token });

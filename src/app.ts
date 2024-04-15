@@ -9,6 +9,9 @@ import adminRoutes from './routes/admin.js'
 import swaggerUi from "swagger-ui-express";
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerOptions from './swagger.js';
+import local from './file.js';
+
+
 
 
      
@@ -18,6 +21,9 @@ dotenv.config();
 
 const app: Express= express();
 app.use(cors());
+
+  app.use(local)
+
    
 const PORT: string | number = 3000;
 

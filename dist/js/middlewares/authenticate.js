@@ -15,6 +15,7 @@ const authenticateUser = async (req, res, next) => {
         }
         req.userId = decoded.userId;
         req.username = decoded.name;
+        req.role = decoded.role;
         next();
     }
     catch (error) {
