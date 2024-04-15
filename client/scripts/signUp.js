@@ -37,7 +37,7 @@
                     if(data.success){
                         alert(data.message);
                         signupForm.reset();
-                        window.location.href = './login.html';
+                        window.location.href = 'https://robsdagreat.github.io/MyBrand-Robert/login.html';
                     } else{
                        alert(data.message || 'Registration failed, try again later! ');
                     }
