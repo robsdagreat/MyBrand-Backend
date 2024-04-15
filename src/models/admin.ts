@@ -1,3 +1,4 @@
+import { string } from 'joi';
 import IAdmin from '../types/admin.js'
 import {model, Schema} from 'mongoose'
 
@@ -7,6 +8,10 @@ const adminSchema: Schema = new Schema({
         required: true
     },
     password:{
+        type: String,
+        required: true
+    },
+    id:{
         type: String,
         required: true
     }
