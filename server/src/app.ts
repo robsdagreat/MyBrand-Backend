@@ -22,7 +22,7 @@ dotenv.config();
 const app: Express= express();
 app.use(cors());
 
-  app.use(local)
+app.use(local)
 
    
 const PORT: string | number = 3000;
