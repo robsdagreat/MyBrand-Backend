@@ -3,7 +3,7 @@
     document.addEventListener('DOMContentLoaded', ()=>{
 
         const signupForm = document.getElementById("signupForm");
-        
+    
 
         signupForm.addEventListener('submit', async(event)=>{
             event.preventDefault();
@@ -30,14 +30,13 @@
                     body: JSON.stringify(formData)
                 });
 
-                // console.log('Response:', response);
 
                 if(response.ok){
                     const data= await response.json();
                     if(data.success){
                         alert(data.message);
                         signupForm.reset();
-                        window.location.href = 'https://robsdagreat.github.io/MyBrand-Robert/login.html';
+                        window.location.href = './login.html';
                     } else{
                        alert(data.message || 'Registration failed, try again later! ');
                     }
