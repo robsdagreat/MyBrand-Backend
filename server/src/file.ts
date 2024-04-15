@@ -6,7 +6,7 @@ const local = express();
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const staticPath = path.resolve(__dirname, '../../../client');
+const staticPath = path.resolve(__dirname, '../../client');
 local.use('/', express.static(staticPath))
 
 
