@@ -1,3 +1,6 @@
+import jwt_decode from 'jwt-decode';
+
+
 document.addEventListener('DOMContentLoaded', async () => {
   const loginForm = document.getElementById('loginForm');
 
