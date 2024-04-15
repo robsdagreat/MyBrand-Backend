@@ -8,10 +8,10 @@ jobs:
       - checkout
       - run:
           name: Install All Dependencies
-          command: cd server && yarn install
+          command: yarn install
       - run:
           name: Build TSC Application
-          command: cd server && yarn build
+          command: yarn build
   test:
     docker:
       - image: cimg/node:21.7.2
@@ -19,10 +19,10 @@ jobs:
       - checkout
       - run:
           name: Install All Dependencies
-          command: cd server && yarn install
+          command: yarn install
       - run:
           name: Run All Tests
-          command: cd server && yarn test
+          command: yarn test
 
 workflows:
   version: 2
