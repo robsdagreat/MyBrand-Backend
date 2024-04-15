@@ -64,37 +64,40 @@ function renderArticles() {
 renderArticles();
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  const blogContainer = document.getElementById('blogContainer');
+// document.addEventListener('DOMContentLoaded', () => {
+//   const blogContainer = document.getElementById('blogContainer');
 
-  blogContainer.addEventListener('click', async (event) => {
-    if (event.target.classList.contains('blogLike')) {
-      const likeButton = event.target;
-      const articleId = likeButton.dataset.articleId;
-      const userId = localStorage.getItem('userId'); 
+//   blogContainer.addEventListener('click', async (event) => {
+//     if (event.target.classList.contains('blogLike')) {
+//       const likeButton = event.target;
+//       const articleId = likeButton.dataset.articleId;
+//       const userId = localStorage.getItem('userId'); 
 
-      try {
-        const likeCountElement = document.getElementById(`likeCount_blog${articleId}`);
-        if (likeCountElement) {
-          let currentLikes = parseInt(likeCountElement.textContent);
-          likeCountElement.textContent = currentLikes + 1;
-        }
-
-        const response = await fetch(`https://mybrand-backend-s9f7.onrender.com/api/blog/:id/likes`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ userId }),
-        });
-
-        if (!response.ok) {
-          console.error('Failed to update like:', response.statusText);
-        }
-      } catch (error) {
-        console.error('Error updating like:', error);
-      }
-    }
-  });
-});
+//       async function likeBlogPost(blogPostId) {
+//         const token = localStorage.getItem('token');
+//         const userId = getUserIdFromToken(token); // Implement this function to extract the user ID from the token
+      
+//         try {
+//           const response = await fetch(`/api/blog/${blogPostId}/like`, {
+//             method: 'POST',
+//             headers: {
+//               'Authorization': `Bearer ${token}`,
+//               'Content-Type': 'application/json',
+//             },
+//             body: JSON.stringify({ userId }),
+//           });
+      
+//           if (response.ok) {
+//             console.log('Blog post liked successfully');
+//           } else {
+//             const error = await response.text();
+//             console.error('Failed to like blog post:', error);
+//           }
+//         } catch (error) {
+//           console.error('An error occurred while liking the blog post:', error);
+//         }
+//       }
+//     }
+//   });
+// });
 
