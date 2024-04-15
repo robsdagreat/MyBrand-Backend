@@ -1,6 +1,3 @@
-
-
-
 document.addEventListener('DOMContentLoaded', async () => {
   const loginForm = document.getElementById('loginForm');
 
@@ -30,10 +27,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         const { token, role } = await response.json();
         localStorage.setItem('token', token);
         localStorage.setItem('role', role);
-
-        const decodedToken = jwt_decode(token);
-        const userId = decodedToken.userId;
-        localStorage.setItem('currentUserId', userId);
 
         alert('Logged in successfully!');
         window.location.href = role === 'admin' ? 'https://robsdagreat.github.io/MyBrand-Backend/dashboard.html' : 'https://robsdagreat.github.io/MyBrand-Backend/blog.html';
