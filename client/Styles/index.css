@@ -1,0 +1,998 @@
+* {
+  margin: 0;
+  font-family: sans-serif;
+}
+/* styling home page */
+#home {
+  background-color: rgb(44, 44, 44);
+  width: 100%vw;
+}
+
+.right {
+  background-color: rgb(253, 183, 53);
+  height: 700px;
+  width: 45%;
+  float: right;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.burger img {
+  height: 30px;
+  margin-left: 30px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.burger img:hover{
+  opacity: 0.5;
+}
+
+.burgerMenu a {
+  color: white; 
+  text-decoration: none; 
+  transition: color 0.3s ease; 
+}
+
+
+.burgerMenu a:hover {
+  color: rgb(253, 183, 53); 
+}
+
+.logo {
+  margin-left: 350px;
+  margin-top: 20px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.logo .txt1 {
+  color: white;
+}
+
+.logo .txt2 {
+  color: rgb(253, 183, 53);
+}
+
+.login {
+  margin-left: 330px;
+  margin-top: 20px;
+}
+
+.login button {
+  padding: 10px;
+  width: 90px;
+  font-size: 15px;
+  font-weight: bold;
+  background: rgb(44, 44, 44);
+  border: 1px solid rgb(253, 183, 53);
+  color: rgb(253, 183, 53);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hello,
+.name,
+.moto,
+.descript,
+.qheader {
+  margin-left: 200px;
+}
+
+.hello {
+  color: white;
+  margin-bottom: 30px;
+  margin-top: 150px;
+  font-size: 30px;
+}
+
+.name {
+  color: rgb(253, 183, 53);
+  margin-top: 150px;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.moto {
+  margin-bottom: 50px;
+  margin-top: 10px;
+  color: white;
+  font-size: 20px;
+}
+
+.descript {
+  font-size: 20px;
+  max-width: 50ch;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.middle {
+  position: absolute;
+  left: 850px;
+  top: 170px;
+  z-index: 1;
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.middle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hire {
+  margin-left: 380px;
+  margin-top: 30px;
+  padding: 10px;
+  width: 90px;
+  font-size: 15px;
+  font-weight: bold;
+  background: rgb(44, 44, 44);
+  border: 1px solid rgb(253, 183, 53);
+  color: rgb(253, 183, 53);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.qualify {
+  padding-bottom: 70px;
+}
+
+.qheader {
+  color: white;
+  margin-bottom: 30px;
+  margin-top: 150px;
+  font-size: 30px;
+  /* border-bottom: 2px solid rgb(253, 183, 53); */
+}
+
+.border {
+  margin-left: 205px;
+  margin-top: -20px;
+  width: 150px;
+  border-bottom: 5px solid rgb(253, 183, 53);
+}
+.headers {
+  margin-bottom: 50px;
+  margin-left: 200px;
+  color: white;
+  font-size: 20px;
+}
+
+.flex {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px;
+  justify-content: center;
+}
+
+.educate .card:nth-child(2) {
+  margin-bottom: 50px;
+}
+
+.experience .card:nth-child(2) {
+  margin-bottom: 50px;
+}
+
+.card {
+  border: 1px solid rgb(253, 183, 53);
+  width: 500px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.flex .card h5 {
+  margin-bottom: 50px;
+  font-weight: bold;
+  color: white;
+}
+
+.flex .card p {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* styling about page */
+
+#about {
+  background: #404040;
+  margin-top: -150px;
+  width: 100%;
+  height: 1000px;
+  box-sizing: border-box;
+}
+
+.qheader2 {
+  padding-top: 80px;
+  color: white;
+  margin-bottom: 30px;
+  margin-top: 150px;
+  margin-left: 200px;
+  font-size: 30px;
+}
+
+.border2 {
+  margin-left: 205px;
+  margin-top: -20px;
+  width: 90px;
+  border-bottom: 5px solid rgb(253, 183, 53);
+}
+
+.cover {
+  height: 400px;
+  width: 400px;
+  border: 1px solid rgb(253, 183, 53);
+  border-radius: 50%;
+  margin-top: 120px;
+  margin-left: 190px;
+  background: rgb(44, 44, 44);
+}
+
+.profile {
+  margin-top: 80px;
+  position: absolute;
+  z-index: 1;
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  top: 1580px;
+  left: 240px;
+}
+
+.profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.right2 {
+  float: right;
+  margin-right: 500px;
+  max-width: 50ch;
+}
+
+.right2 h5 {
+  color: white;
+  font-size: 20px;
+  padding-bottom: 30px;
+}
+
+.right2 p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 20px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 300px;
+  margin-left: 900px;
+}
+
+.card2 {
+  border: 1px solid rgb(253, 183, 53);
+  border-radius: 8px;
+  background: rgb(44, 44, 44);
+  width: 200px;
+  padding: 30px;
+  margin-right: 30px;
+  text-align: center;
+}
+
+.card2 h6 {
+  color: white;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.card2 span {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.card2 p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.btn button {
+  padding: 10px;
+  width: 180px;
+  font-size: 15px;
+  font-weight: bold;
+  background: rgb(44, 44, 44);
+  border: 1px solid rgb(253, 183, 53);
+  color: rgb(253, 183, 53);
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 1250px;
+  margin-top: 80px;
+}
+
+
+/* stying contact page */
+#contact {
+  background: rgb(44, 44, 44);
+  margin-top: -150px;
+}
+
+.qheader3 {
+  padding-top: 80px;
+  color: white;
+  margin-bottom: 30px;
+  margin-top: 150px;
+  margin-left: 200px;
+  font-size: 30px;
+}
+
+.border3 {
+  margin-left: 205px;
+  margin-top: -20px;
+  width: 90px;
+  border-bottom: 5px solid rgb(253, 183, 53);
+}
+
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+
+
+.card3 {
+  border: 1px solid rgb(253, 183, 53);
+  border-radius: 8px;
+  background: rgb(44, 44, 44);
+  width: 240px;
+  padding: 40px;
+  text-align: center;
+  margin-left: 50px;
+}
+
+.talk {
+  margin-left: 200px;
+  margin-top: 50px;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.card3 img {
+  margin-bottom: 20px;
+}
+
+.card3 span {
+  margin-top: 70px;
+  margin-left: 50px;
+  font-size: 20px;
+  color: white;
+}
+
+.card3 p {
+  font-size: 20px;
+  color: white;
+}
+
+#contactForm {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.form h2 {
+  color: white;
+  text-align: center;
+  margin-top: 120px;
+}
+
+#contactForm input[name="name"] {
+  margin-top: 80px;
+  margin-bottom: 50px;
+  width: 300px;
+  background-color: rgb(44, 44, 44);
+  border: 1px solid rgb(253, 183, 53);
+  border-radius: 5px;
+  padding: 15px;
+  color: white;
+}
+
+#contactForm input[name="email"] {
+  margin-bottom: 50px;
+  width: 300px;
+  background-color: rgb(44, 44, 44);
+  border: 1px solid rgb(253, 183, 53);
+  border-radius: 5px;
+  padding: 15px;
+  color: white;
+  transition: width 0.5s;
+}
+
+#contactForm textarea {
+  width: 320px;
+  background-color: rgb(44, 44, 44);
+  border: 1px solid rgb(253, 183, 53);
+  border-radius: 5px;
+  color: white;
+}
+
+#contactForm textarea::placeholder {
+  color: white;
+  padding: 50px;
+}
+
+#contactForm input[type="text"]::placeholder {
+  color: white;
+  padding: 35px;
+}
+
+#contactForm input[type="email"]::placeholder {
+  color: white;
+  padding: 35px;
+}
+
+#contactForm input[type="text"]:focus {
+  border: 1px solid rgb(253, 183, 53);
+  color: white;
+}
+
+.form button {
+  padding: 10px;
+  width: 100px;
+  font-size: 15px;
+  font-weight: bold;
+  background: rgb(44, 44, 44);
+  border: 1px solid rgb(253, 183, 53);
+  color: rgb(253, 183, 53);
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 50px;
+}
+
+/* styling my footer */
+
+footer {
+  background-color: rgb(44, 44, 44);
+  text-align: center;
+}
+
+.fline {
+  padding-top: 150px;
+  border-bottom: 2px solid rgb(253, 183, 53);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.brand h2 {
+  margin-top: 80px;
+  color: white;
+}
+
+.brand .links {
+  margin-top: 50px;
+  font-size: 20px;
+  margin-left: 550px;
+}
+
+.brand a {
+  color: white;
+  text-decoration: none;
+  margin-bottom: 50px;
+  margin-inline: 100px;
+}
+
+.copy {
+  color: white;
+  font-size: 17px;
+  padding-bottom: 30px;
+}
+
+
+.burgerMenu {
+  display: none;
+}
+
+.burgerMenu nav {
+  margin-top: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.burgerMenu nav:hover{
+  color: rgb(253, 183, 53);
+  transition: ease 0.5s;
+}
+
+.burgerShow {
+  display: block;
+  margin-top: 20px;
+  border: 2px solid rgb(253, 183, 53);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+@media screen and (max-width: 1621px) {
+  .brand .links {
+    transform: translateX(-12%);
+  }
+
+  .btn button {
+    margin-left: 800px;
+  }
+
+  .logo{
+    margin-left: 280px;
+  }
+
+  .login{
+    margin-left: 300px;
+  }
+
+  .middle {
+    transform: translateX(-40%);
+  }
+
+  .descript{
+    max-width: 40ch;
+  }
+
+  .profile{
+    position: absolute;
+    top: 1480px;
+  }
+
+  .right2 {
+    transform: translateX(40%);
+    margin-top: 40px;
+  }
+
+  .cards{
+    display: flex;
+    flex-wrap: nowrap;
+    margin-left: 400px;
+    margin-top: 500px;
+  }
+
+}
+
+@media screen and (max-width: 1400px){
+  .brand .links {
+    margin-left: 400px;
+  }
+
+  .hello, .name, .moto, .descript{
+    margin-left: 80px;
+  }
+
+  .qheader, .qheader2, .qheader3, .border, .border2, .border3, .talk{
+    margin-left: 80px;
+  }
+
+  .hire{
+    margin-left: 200px;
+  }
+  
+  .btn button {
+   margin-left: 700px;
+  }
+
+  .logo{
+    margin-left: 160px;
+  }
+
+  .login {
+    margin-left: 230px;
+    margin-top: 20px;
+  }
+  
+
+  .card {
+    border: 1px solid rgb(253, 183, 53);
+    width: 388px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+    border-radius: 10px;
+  }
+
+  .cards{
+    margin-left: 300px;
+  }
+
+  .card2 {
+    transform: translateX(30%);
+    margin-top: 30px;
+  }
+
+  .card3{
+    width: 120px;
+    height: 100px;
+    overflow: hidden;
+  }
+
+  .card3 p, .card3 span{
+    font-size: 15px;
+  }
+
+  .middle {
+    position: absolute;
+    left: 750px;
+  }
+
+  .profile {
+    height: 350px;
+    width: 350px;
+    position: absolute;
+    top: 1500px;
+    left: 100px;
+  }
+
+  .right2{
+    float: left;
+    margin-left: 480px;
+  }
+
+}
+
+@media screen and (max-width: 1200px) {
+  .brand .links {
+    margin-left: 300px;
+  }
+  
+  .logo{
+    margin-left: 80px;
+  }
+
+  .login {
+    margin-left: 180px;
+    margin-top: 20px;
+  }
+  
+  .right2{
+    float: right;
+    margin-right: 300px;
+    margin-top: 20px;
+  }
+
+  .right p{
+  font-size: 15px;
+  }
+
+  .card {
+    border: 1px solid rgb(253, 183, 53);
+    width: 300px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+    border-radius: 10px;
+  }
+
+  .cards{
+    margin-top: 500px;
+  }
+
+  .card2 {
+    border: 1px solid rgb(253, 183, 53);
+    border-radius: 8px;
+    background: rgb(44, 44, 44);
+    width: 100px;
+    padding: 30px;
+    margin-right: 30px;
+    text-align: center;
+  }
+
+  .card3{
+    width: 120px;
+    height: 100px;
+    overflow: hidden;
+    margin-left: 20px;
+  }
+
+  .card3 p, .card3 span{
+    font-size: 15px;
+  }
+
+  .middle {
+    position: absolute;
+    left: 630px;
+    height: 300px;
+    width: 300px;
+  }
+
+  .descript{
+    max-width: 35ch;
+    margin-left: 50px;
+  }
+
+  .intro h2,.name,.moto{
+    margin-left: 50px;
+  }
+
+  .profile{
+    position: absolute;
+    top: 1540px;
+    height: 300px;
+    width: 300px;
+  }
+
+  .qheader, .qheader2,.qheader3, .border, .border2,.border3, .talk{
+    margin-left: 50px;
+  }
+
+  .btn button{
+    margin-left: 580px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .hello {
+    font-size: 20px;
+  }
+  
+  .name {
+    color: rgb(253, 183, 53);
+    margin-top: 150px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  .moto {
+ 
+    font-size: 15px;
+  }
+  
+  .descript {
+    font-size: 15px;
+  }
+
+  .hello, .moto, .descript, .name{
+    margin-left: 50px;
+  }
+
+  .hire{
+    margin-left: 150px;
+    height: 35px;
+    font-size: 15px;
+  }
+
+  .login{
+    margin-left: 140px;
+  }
+
+  .login button{
+    padding: 5px;
+  }
+
+  .logo{
+    margin-left: 80px;
+    font-size: 25px;
+  }
+
+  .burger img{
+    height: 30px;
+  }
+
+  .middle{
+    position: absolute;
+    left: 510px;
+  }
+
+  .qheader, .qheader2, .qheader3, .talk{
+    margin-left: 50px;
+    font-size: 20px;
+  }
+
+  .border, .border2, .border3{
+    margin-left: 50px;
+    border-bottom: 3px solid rgb(253, 183, 53);
+  }
+
+  .cards{
+    margin-left: 200px;
+    margin-top: 500px;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .btn button{
+    margin-left: 450px;
+  }
+
+  .right2{
+    float: left;
+    margin-left: 380px;
+  }
+
+  .right2 p, .talk{
+    font-size: 15px;
+  }
+
+  .form h2, .brand h2{
+    font-size: 20px;
+  }
+
+  .profile{
+    height: 300px;
+    width: 300px;
+    position: absolute;
+    top: 1450px;
+    left: 60px;
+  }
+  
+  .brand .links{
+    margin-left: 180px;
+  }
+  
+  .card3{
+    margin-left: 10px;
+    padding: 25px;
+    margin-top: 0px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .login{
+    margin-left: 80px;
+  }
+
+  .brand .links{
+    margin-left: 170px;
+  }
+
+  .headers{
+    margin-left: 120px;
+  }
+  
+  .middle{
+    height: 250px;
+    width: 250px;
+    position: absolute;
+    left: 430px;
+  }
+
+  .profile{
+    height: 250px;
+    width: 250px;
+    position: absolute;
+    top: 2050px;
+  }
+
+  .right2 {
+    float: right;
+    margin-right: 200px;
+    margin-top: 60px;
+  }
+
+  .cards{
+    margin-left: 100px;
+  }
+
+  .btn button{
+    margin-left: 338px;
+  }
+
+  .card3{
+    margin-top: 100px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .middle{
+    height:150px;
+    width: 150px;
+    position: absolute;
+    left: 330px;
+  }
+
+  .hire{
+   width: 90px;
+   padding: 3px;
+  }
+
+  .descript{
+    font-size: 12px;
+  }
+
+  .name{
+    font-size: 25px;
+  }
+   
+  .moto{
+    font-size: 12px;
+  }
+
+  .hello{
+    font-size: 15px;
+  }
+
+  .burger img{
+    height: 20px;
+  }
+
+  .burgerMenu nav {
+    margin-top: 10px;
+    font-size: 10px;
+    color: white;
+    cursor: pointer;
+  }
+
+  .login{
+    margin-left: 50px;
+  }
+ 
+  .logo{
+    font-size: 18px;
+    margin-left: 50px;
+  }
+
+  .login button{
+    font-size: 10px;
+    width: 50px;
+  }
+  
+  .burgerShow {
+    display: block;
+    margin-top: 5px;
+    border: 2px solid rgb(253, 183, 53);
+    border-radius: 8px;
+    padding: 5px;
+  }
+
+  .profile{
+    height:250px;
+    width: 250px;
+    position: absolute;
+    top: 1930px;
+    left: 190px;
+  }
+
+  .right2{
+    float: none;
+    margin-left: 120px;
+    max-width: 80ch;
+    margin-top: 300px;
+  }
+
+  .cards{
+    margin-top: 40px;
+    margin-left: 30px;
+  }
+
+  .card2{
+    width: 70px;
+    margin-left: 5px;
+  }
+
+  .btn button{
+    margin-left: 200px;
+  }
+}
