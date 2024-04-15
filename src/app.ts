@@ -9,6 +9,9 @@ import adminRoutes from './routes/admin.js'
 import swaggerUi from "swagger-ui-express";
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerOptions from './swagger.js';
+import local from './file.js';
+
+
 
 
      
@@ -17,9 +20,10 @@ dotenv.config();
 
 
 const app: Express= express();
-app.use(cors({
-    origin: ["https://mybrand-backend-s9f7.onrender.com", "http://127.0.0.1:5500"]
-  }));
+app.use(cors());
+
+  app.use(local)
+
    
 const PORT: string | number = 3000;
 
