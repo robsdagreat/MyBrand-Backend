@@ -1,5 +1,5 @@
 import express from 'express';
-import { deleteBlog, updateBlog, addCommentToBlog, likeBlog, getBlog, createBlog, getAllBlogs } from '../controllers/blogs.js';
+import { deleteBlog, updateBlog, addCommentToBlog, likeBlog, getBlog, createBlog, getAllBlogs, upload } from '../controllers/blogs.js';
 import authenticateUser from '../middlewares/authenticate.js';
 import AuthenticateAdmin from '../middlewares/adminAuth.js';
 const blogRouter = express.Router();
@@ -165,7 +165,7 @@ blogRouter.post('/blog/:id/likes', authenticateUser, likeBlog);
  *       '500':
  *         description: Server error
  */
-blogRouter.post("/blog/add", AuthenticateAdmin, createBlog);
+blogRouter.post("/blog/add", AuthenticateAdmin, upload.single('image'), createBlog);
 /**
  * @swagger
  * /api/blog/delete/{id}:
@@ -225,7 +225,7 @@ blogRouter.delete("/blog/delete/:id", AuthenticateAdmin, deleteBlog);
  *       '500':
  *         description: Server error
  */
-blogRouter.put("/blog/edit/:id", AuthenticateAdmin, updateBlog);
+blogRouter.put("/blog/edit/:id", AuthenticateAdmin, upload.single('image'), updateBlog);
 /**
  * @swagger
  * /api/blogs:
