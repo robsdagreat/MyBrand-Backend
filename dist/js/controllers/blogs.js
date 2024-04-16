@@ -1,5 +1,18 @@
 import Blog from '../models/blogs.js';
 import Joi from "joi";
+import multer from 'multer';
+import { CloudinaryStorage } from 'multer-storage-cloudinary';
+import { v2 as cloudinary } from 'cloudinary';
+const storage = new CloudinaryStorage({
+    cloudinary,
+    params: (req, file) => {
+        return {
+            format: 'jpg,JPEG,PNG,GIF',
+            public_id: `${Date.now()}-${file.originalname}`,
+        };
+    },
+});
+const upload = multer({ storage });
 const blogValidationSchema = Joi.object({
     author: Joi.string().required(),
     title: Joi.string().required(),
@@ -148,5 +161,5 @@ const likeBlog = async (req, res) => {
         res.status(500).json({ message: 'Server error' });
     }
 };
-export { deleteBlog, getAllBlogs, updateBlog, addCommentToBlog, likeBlog, getBlog, createBlog };
+export { deleteBlog, getAllBlogs, updateBlog, addCommentToBlog, likeBlog, getBlog, createBlog, upload };
 //# sourceMappingURL=blogs.js.map
