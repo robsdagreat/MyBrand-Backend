@@ -1,29 +1,25 @@
 import jwt from 'jsonwebtoken';
 import { jwtSecretKey } from "../utils.js";
-const isAdmin = async (req, res, next) => {
-    try {
-        const token = req.headers.authorization?.split(' ')[1];
-        if (!token) {
-            res.status(401).json({ message: 'Unauthorized. Token missing!' });
-            return;
-        }
-        let decoded;
-        if (typeof token === 'string') {
-            decoded = jwt.verify(token, jwtSecretKey);
-        }
-        else {
-            throw new Error("Invalid token type");
-        }
-        if (decoded && decoded.isAdmin) {
+const isAdmin = (req, res, next) => {
+    const token = req.cookies.jwt;
+    if (token) {
+        jwt.verify(token, jwtSecretKey, (err, decoded) => {
+            if (err) {
+                return res.status(403).json({ message: 'Authentication failed!' });
+            }
+            const { email, isAdmin } = decoded;
+            req.email = decoded.email;
+            req.isAdmin = decoded.isAdmin;
+            if (!isAdmin) {
+                return res.status(403).json({
+                    message: 'You are not allowed to access this resource, It is only for admins'
+                });
+            }
             next();
-        }
-        else {
-            res.status(403).json({ message: 'Not authorized as admin' });
-        }
+        });
     }
-    catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Server Error' });
+    else {
+        res.status(401).json({ error: 'You\'re not logged in,!Please login to continue' });
     }
 };
 export default isAdmin;

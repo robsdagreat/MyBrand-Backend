@@ -1,3 +1,7 @@
 import { Request, Response, NextFunction } from "express";
-declare const isAdmin: (req: Request, res: Response, next: NextFunction) => Promise<void>;
+interface AuthenticatedRequest extends Request {
+    email?: string;
+    isAdmin?: boolean;
+}
+declare const isAdmin: (req: AuthenticatedRequest, res: Response, next: NextFunction) => void;
 export default isAdmin;

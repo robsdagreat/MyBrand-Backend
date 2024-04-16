@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
-import jwt ,{ JwtPayload } from "jsonwebtoken";
+import jwt  from "jsonwebtoken";
 import { jwtSecretKey } from "../utils.js";
-import admin from "../models/admin.js";
+
 
 
 
@@ -22,7 +22,18 @@ const adminLogin = async (req: Request, res: Response): Promise<void> => {
         }
 
         
-        const token = jwt.sign({ email, isAdmin: true}, jwtSecretKey, { expiresIn: '1h' });
+        const token = jwt.sign(
+            { email, isAdmin: true},
+            jwtSecretKey,
+        );
+
+        const expiryDate = new Date(Date.now() + 1 * 24 * 60 * 60 * 1000);
+
+        res.cookie(
+            'jwt',
+            token,
+            {httpOnly: true, path: '/', expires: expiryDate},  
+        ),
         res.status(200).json({ message: 'Welcome back Admin!', token });
         return;
     } catch (error) {

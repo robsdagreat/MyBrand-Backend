@@ -7,6 +7,10 @@ const adminSchema = new Schema({
     password: {
         type: String,
         required: true
+    },
+    id: {
+        type: String,
+        required: true
     }
 });
 export default model('admin', adminSchema);
