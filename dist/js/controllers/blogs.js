@@ -1,7 +1,7 @@
 import Blog from '../models/blogs.js';
 import Joi from "joi";
 const blogValidationSchema = Joi.object({
-    author: Joi.string().required(),
+    author: Joi.string().default("Robs_dagreat"),
     title: Joi.string().required(),
     story: Joi.string().required(),
     image: Joi.string().required(),
