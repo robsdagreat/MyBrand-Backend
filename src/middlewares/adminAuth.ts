@@ -8,7 +8,7 @@ interface AuthenticatedRequest extends Request {
     isAdmin: string;
 }
 
-const adminAuth = (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+const AuthenticateAdmin = (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     const token = req.cookies.jwt;
     if (token) {
       jwt.verify(token, jwtSecretKey, (err: any, decoded: any) => {
@@ -33,4 +33,4 @@ const adminAuth = (req: AuthenticatedRequest, res: Response, next: NextFunction)
     }
   };
 
-export default adminAuth;
+export default AuthenticateAdmin;
