@@ -13,7 +13,7 @@ const AuthenticateAdmin = (req: AuthenticatedRequest, res: Response, next: NextF
     if (token) {
       jwt.verify(token, jwtSecretKey, (err: any, decoded: any) => {
         if (err) {
-          return res.status(403).json({ message: 'Failed to authenticate token' });
+          return res.status(403).json({ message: 'Authentication failed!' });
         }
   
         const { email, isAdmin } = decoded;
@@ -29,7 +29,7 @@ const AuthenticateAdmin = (req: AuthenticatedRequest, res: Response, next: NextF
         next();
       });
     } else {
-      res.status(401).json({ error: 'You need to login to access this resource; Please login to continue' });
+      res.status(401).json({ error: 'You\'re not logged in,!Please login to continue' });
     }
   };
 
