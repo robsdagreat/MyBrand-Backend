@@ -9,16 +9,16 @@ import adminRoutes from './routes/admin.js';
 import swaggerUi from "swagger-ui-express";
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerOptions from './swagger.js';
-import local from './file.js';
+// import local from './file.js';
 dotenv.config();
 const app = express();
 app.use(cors());
-app.use(local);
+// app.use(local)
 const PORT = 3000;
 const specs = swaggerJSDoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({extended: true}))
 app.use("/api", blogRouters, userRoutes, contactRoutes, adminRoutes);
 const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@cluster10.p45jk48.mongodb.net/?retryWrites=true&w=majority&appName=Cluster10`;
 mongoose.connect(uri).then(() => {

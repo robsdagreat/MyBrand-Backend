@@ -24,7 +24,7 @@
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype.js" />
 import IAdmin from '../types/admin.js';
-declare const _default: import("mongoose").Model<IAdmin, {}, {}, {}, import("mongoose").Document<unknown, {}, IAdmin> & IAdmin & {
-    _id: import("mongoose").Types.ObjectId;
-}, any>;
+declare const _default: import("mongoose").Model<IAdmin, {}, {}, {}, import("mongoose").Document<unknown, {}, IAdmin> & IAdmin & Required<{
+    _id: string;
+}>, any>;
 export default _default;

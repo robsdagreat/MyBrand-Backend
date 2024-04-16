@@ -1,14 +1,13 @@
 import { Request, Response, NextFunction } from "express";
-import jwt, {JwtPayload} from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 import { jwtSecretKey } from "../utils.js";
 
-
 interface AuthenticatedRequest extends Request {
-    email: string; 
-    isAdmin: string;
+    email?: string; 
+    isAdmin?: boolean;
 }
 
-const AuthenticateAdmin = (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
+const isAdmin = (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     const token = req.cookies.jwt;
     if (token) {
       jwt.verify(token, jwtSecretKey, (err: any, decoded: any) => {
@@ -33,4 +32,4 @@ const AuthenticateAdmin = (req: AuthenticatedRequest, res: Response, next: NextF
     }
   };
 
-export default AuthenticateAdmin;
+export default isAdmin;
