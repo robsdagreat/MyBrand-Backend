@@ -25,7 +25,7 @@ const adminLogin = async (req: Request, res: Response): Promise<void> => {
         const expiryDate = new Date(Date.now() + 1 * 24 * 60 * 60 * 1000);
 
         res.cookie('jwt', token, { httpOnly: true, path: '/', expires: expiryDate });
-        res.status(200).json({ message: 'Admin logged in successfully!' });
+        res.status(200).json({ message: 'Welcome back Admin!', token });
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Server Error' });
