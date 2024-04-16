@@ -2,6 +2,22 @@ import { Request, Response } from "express";
 import Blog from '../models/blogs.js'
 import { IBlog } from "../types/blogs.js";
 import Joi from "joi";
+import multer from 'multer';
+import { CloudinaryStorage } from 'multer-storage-cloudinary';
+import { v2 as cloudinary } from 'cloudinary';
+
+
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: (req, file) => {
+    return {
+      format: 'jpg,JPEG,PNG,GIF', 
+      public_id: `${Date.now()}-${file.originalname}`,
+    } 
+  },
+});
+
+const upload = multer({ storage });
 
 const blogValidationSchema = Joi.object({
     author: Joi.string().required(),
@@ -192,4 +208,4 @@ const likeBlog = async (req: AuthenticatedRequest, res: Response): Promise<void>
 
 
           
-export {deleteBlog,getAllBlogs, updateBlog,addCommentToBlog ,likeBlog, getBlog, createBlog}
+export {deleteBlog,getAllBlogs, updateBlog,addCommentToBlog ,likeBlog, getBlog, createBlog, upload }
