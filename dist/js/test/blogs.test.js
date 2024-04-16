@@ -8,7 +8,7 @@ describe('Blog endpoints', () => {
     let token;
     let blogId;
     const blogSchema = Joi.object({
-        author: Joi.string().default("Robs_dagreat"),
+        author: Joi.string().required(),
         title: Joi.string().required(),
         story: Joi.string().required(),
         image: Joi.string().required()
@@ -26,7 +26,7 @@ describe('Blog endpoints', () => {
     it('should create a new blog', function (done) {
         this.timeout(15000);
         const requestBody = {
-            author: 'Robs_dagreat',
+            author: 'author',
             title: 'Test blog',
             story: 'This is a test blog',
             image: 'image url'
@@ -67,7 +67,7 @@ describe('Blog endpoints', () => {
     });
     it('should update a blog', (done) => {
         const updateBody = {
-            author: 'Robs_dagreat',
+            author: 'author',
             title: 'Test blog',
             story: 'This is a test blog',
             image: 'image url'
