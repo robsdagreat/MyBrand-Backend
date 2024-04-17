@@ -20,7 +20,6 @@ const storage = new CloudinaryStorage({
 const upload = multer({ storage });
 
 const blogValidationSchema = Joi.object({
-    author: Joi.string().required(),
     title: Joi.string().required(),
     story: Joi.string().required(),
     image: Joi.string().required(),
@@ -30,7 +29,6 @@ const blogValidationSchema = Joi.object({
 });
 
 const updateBlogSchema = Joi.object({
-    author: Joi.string().optional(),
     title: Joi.string().optional(),
     story: Joi.string().optional(),
     image: Joi.string().optional(),

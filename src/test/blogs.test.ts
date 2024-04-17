@@ -11,14 +11,12 @@ describe('Blog endpoints', () => {
   let blogId : string;
 
   const blogSchema = Joi.object({
-    author: Joi.string().required(),
     title: Joi.string().required(),
     story: Joi.string().required(),
     image: Joi.string().required()
   });
 
   const updateBlogSchema = Joi.object({
-    author: Joi.string().optional(),
     title: Joi.string().optional(),
     story: Joi.string().optional(),
     image: Joi.string().optional()
@@ -36,7 +34,6 @@ describe('Blog endpoints', () => {
 it('should create a new blog', function(done){
   this.timeout(15000)
   const requestBody = {
-    author: 'author',
     title: 'Test blog',
     story: 'This is a test blog',
     image: 'image url'
@@ -82,7 +79,6 @@ it('should create a new blog', function(done){
 
   it('should update a blog', (done) => {
     const updateBody = {
-      author: 'author',
       title: 'Test blog',
       story: 'This is a test blog',
       image: 'image url'
