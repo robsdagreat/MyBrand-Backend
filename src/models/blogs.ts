@@ -3,6 +3,11 @@ import { IBlog } from "../types/blogs.js";
 import { Schema, model } from "mongoose";
 
 const blogSchema: Schema= new Schema({
+    author:{
+        type: String,
+        required: true
+
+    },
     title:{
         type: String,
         required: true
