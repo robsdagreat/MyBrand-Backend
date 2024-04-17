@@ -5,7 +5,7 @@ import { Schema, model } from "mongoose";
 const blogSchema: Schema= new Schema({
     author:{
         type: String,
-        required: true
+        default: 'Robs_dagreat'
 
     },
     title:{
