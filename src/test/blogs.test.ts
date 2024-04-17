@@ -3,7 +3,6 @@ import request from 'supertest';
 import app from '../app.js';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 import { jwtSecretKey } from '../utils.js';
-import mongoose from 'mongoose';
 import Joi from 'joi'
 
 describe('Blog endpoints', () => {

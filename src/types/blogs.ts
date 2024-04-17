@@ -2,7 +2,6 @@ import { Document } from "mongoose";
 
 
 export interface IBlog extends Document{
-    author: string,
     title: string,
     story: string,
     image: string,
