@@ -20,7 +20,6 @@ const storage = new CloudinaryStorage({
 const upload = multer({ storage });
 
 const blogValidationSchema = Joi.object({
-    author: Joi.string().required(),
     title: Joi.string().required(),
     story: Joi.string().required(),
     image: Joi.string().required(),
@@ -30,7 +29,6 @@ const blogValidationSchema = Joi.object({
 });
 
 const updateBlogSchema = Joi.object({
-    author: Joi.string().optional(),
     title: Joi.string().optional(),
     story: Joi.string().optional(),
     image: Joi.string().optional(),
@@ -46,6 +44,7 @@ interface AuthenticatedRequest extends Request {
 
 const createBlog= async (req:Request, res:Response): Promise<void> =>{
 try{ 
+    
 
     const { error, value } = blogValidationSchema.validate(req.body);
     if (error) {
@@ -58,9 +57,9 @@ try{
  res.status(200).json({
     message: "Blog created successfully",
     blogId: newBlog._id 
-
+          
  });
-} catch(error){
+} catch(error){            
 
     console.error(error);
     res.status(500).json({message: "Server Error"})  

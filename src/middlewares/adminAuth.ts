@@ -22,7 +22,7 @@ const isAdmin = async (req: Request, res: Response, next: NextFunction): Promise
     if(decoded && decoded.isAdmin){
         next();
     }else{
-        res.status(403).json({message: 'Not authorized as admin'});
+        res.status(403).json({message: 'Restricted! Not authorized as admin.'});
     }
 
     } catch(error){
