@@ -163,7 +163,7 @@ blogRouter.post('/blog/:id/likes', authenticateUser, likeBlog);
  *     tags: [Blogs]
  *     security: 
  *       - BearerAuth: []
- *     requestBody:
+ *     requestBody:        
  *       required: true
  *       content:
  *         application/json:
@@ -235,7 +235,7 @@ blogRouter.delete("/blog/delete/:id", AuthenticateAdmin, deleteBlog);
  *       '200':
  *         description: Blog updated successfully
  *         content:
- *           application/json:
+ *           application/json:                 
  *             schema:
  *               $ref: '#/components/schemas/Blog'
  *       '404':
