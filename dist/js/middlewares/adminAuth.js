@@ -18,7 +18,7 @@ const isAdmin = async (req, res, next) => {
             next();
         }
         else {
-            res.status(403).json({ message: 'Not authorized as admin' });
+            res.status(403).json({ message: 'Restricted! Not authorized as admin.' });
         }
     }
     catch (error) {

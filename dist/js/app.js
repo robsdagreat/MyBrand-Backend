@@ -24,11 +24,11 @@ const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@c
 mongoose.connect(uri)
     .then(() => {
     app.listen(PORT, () => {
-        console.log(`Server running on port: ${PORT}, connected to MongoDB`);
+        console.log(`Server running on port: ${PORT}, connected to the Database!`);
     });
 })
     .catch((error) => {
-    console.error('Error connecting to MongoDB:', error);
+    console.error('Error connecting to the Database:', error);
     process.exit(1);
 });
 export default app;
