@@ -23,6 +23,13 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose/types/inferschematype" />
 import { Document } from "mongoose";
+export interface IComment extends Document {
+    user?: string;
+    username: string;
+    comment: string;
+    createdAt: Date;
+    updatedAt: Date;
+}
 export interface IBlog extends Document {
     author: string;
     title: string;
@@ -30,14 +37,5 @@ export interface IBlog extends Document {
     image: string;
     date: Date;
     likes: string[];
-    comments: {
-        user: string;
-        content: string;
-    }[];
-}
-export interface IComment extends Document {
-    userId: string;
-    text: string;
-    username: string;
-    timestamp: Date;
+    comments: IComment[];
 }

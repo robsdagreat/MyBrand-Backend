@@ -165,11 +165,10 @@ const deleteBlog = async(req: Request, res: Response): Promise<void> =>{
 
 const addCommentToBlog = async (req: AuthenticatedRequest, res: Response): Promise<void> => {
     try {
-      const { params: { id } } = req;
-      const { userId, username } = req;
-      const { comment } = req.body;
+        const { id } = req.params;
+        const { userId, username, comment } = req.body;
   
-      const blog = await Blog.findById(id);
+        const blog: IBlog | null = await Blog.findById(id);
   
       if (!blog) {
         res.status(404).json({ message: 'Blog not found!' });
@@ -177,14 +176,14 @@ const addCommentToBlog = async (req: AuthenticatedRequest, res: Response): Promi
         const CommentModel: Model<IComment> = (Blog as any).base.models.comments;
       const newComment = new CommentModel({
         user: userId,
-        username,
-        comment,
+        username: username, 
+        comment: comment,
         createdAt: new Date(),
         updatedAt: new Date(),
       });
   
         blog.comments.push(newComment);
-        const updatedBlog = await blog.save();
+        const updatedBlog: IBlog = await blog.save();
   
         res.status(201).json({ message: 'Comment added successfully', blog: updatedBlog });
       }
