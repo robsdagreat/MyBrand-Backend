@@ -5,7 +5,8 @@ import Joi from "joi";
 import multer from 'multer';
 import { CloudinaryStorage } from 'multer-storage-cloudinary';
 import { v2 as cloudinary } from 'cloudinary';
-
+import { IComment } from '../types/blogs.js';
+import { Model } from 'mongoose';
 
 const storage = new CloudinaryStorage({
   cloudinary,
@@ -38,8 +39,12 @@ const updateBlogSchema = Joi.object({
 
 interface AuthenticatedRequest extends Request {
     userId?: string; 
+    username?: string;
 }
 
+// interface AuthenticatedRequestWithUsername extends AuthenticatedRequest {
+//     username: string;
+//   }
 
 
 const createBlog= async (req:Request, res:Response): Promise<void> =>{
@@ -160,23 +165,34 @@ const deleteBlog = async(req: Request, res: Response): Promise<void> =>{
 
 const addCommentToBlog = async (req: AuthenticatedRequest, res: Response): Promise<void> => {
     try {
-        const { params: { id }}= req;
-        const  {userId} =req;
-        const body = req.body;
-        const blog = await Blog.findById(id);
-        if (!blog) {
-            res.status(404).json({ message: 'Blog not found!' }); 
-        }else{
-      const comment = {...body, user: userId}
-        blog.comments.push(comment);
+      const { params: { id } } = req;
+      const { userId, username } = req;
+      const { comment } = req.body;
+  
+      const blog = await Blog.findById(id);
+  
+      if (!blog) {
+        res.status(404).json({ message: 'Blog not found!' });
+      } else {
+        const CommentModel: Model<IComment> = (Blog as any).base.models.comments;
+      const newComment = new CommentModel({
+        user: userId,
+        username,
+        comment,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      });
+  
+        blog.comments.push(newComment);
         const updatedBlog = await blog.save();
+  
         res.status(201).json({ message: 'Comment added successfully', blog: updatedBlog });
-    }
+      }
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Server Error' });
+      console.error(error);
+      res.status(500).json({ message: 'Server Error' });
     }
-};  
+  }; 
 
 
 
