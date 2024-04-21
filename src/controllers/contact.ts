@@ -25,5 +25,14 @@ const contactForm = async (req: Request, res: Response): Promise<void> => {
       res.status(500).json({ message: 'Server Error' });
     }
   };
+const getAllContacts = async (req: Request, res: Response): Promise<void> =>{
+  try{const allContacts = await Message.find();
 
-export default contactForm;
+  res.status(200).json({message: 'Queries retrieved successfully!', Queries: allContacts}
+
+  )}catch(error){
+    console.error( error);
+    res.status(500).json({message: 'Server Error'})
+  }
+}
+export {getAllContacts,contactForm};
