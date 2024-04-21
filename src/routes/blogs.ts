@@ -12,6 +12,7 @@ import {
 import authenticateUser from '../middlewares/authenticate.js';
 import AuthenticateAdmin from '../middlewares/adminAuth.js';
 
+
 const blogRouter: Router = express.Router();
 blogRouter.use(express.json());
 
