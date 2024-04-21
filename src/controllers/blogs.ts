@@ -113,33 +113,33 @@ const getBlog = async(req:Request, res:Response): Promise<void> =>{
 
 
 
-const updateBlog = async(req: Request, res: Response): Promise<void> =>{
-    try{
+    const updateBlog = async(req: Request, res: Response): Promise<void> =>{
+        try{
 
-        const {params:{id},body} = req;
+            const {params:{id},body} = req;
 
-        const { error } = updateBlogSchema.validate(body);
-        if (error) {
-            res.status(400).json({ message: error.details[0].message });
-            return;
-        }
-    
-        const updateBlog: IBlog | null = await Blog.findByIdAndUpdate(id, body, {new: true});
-        if(!updateBlog){
-            res.status(404).json({message: "Blog not found!"})
-        }
+            const { error } = updateBlogSchema.validate(body);
+            if (error) {
+                res.status(400).json({ message: error.details[0].message });
+                return;
+            }
         
-        res.status(200).json({
-           message: "Blog updated",
-           blog: updateBlog
-        })
-       
-    } catch(error){
-        console.error(error);
-        res.status(500).json({message: "Server Error"});
-                                                                                                                            
-    }   
-}
+            const updateBlog: IBlog | null = await Blog.findByIdAndUpdate(id, body, {new: true});
+            if(!updateBlog){
+                res.status(404).json({message: "Blog not found!"})
+            }
+            
+            res.status(200).json({
+            message: "Blog updated",
+            blog: updateBlog
+            })
+        
+        } catch(error){
+            console.error(error);
+            res.status(500).json({message: "Server Error"});
+                                                                                                                                
+        }   
+    }
 
 
 

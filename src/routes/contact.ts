@@ -1,10 +1,10 @@
 import express, { Router } from "express";
-import contactForm from "../controllers/contact.js";
+import { getAllContacts, contactForm } from "../controllers/contact.js";
 
 const router: Router = express.Router();
 
 router.use(express.json());
-router.use(express.urlencoded({extended: true}));
+router.use(express.urlencoded({ extended: true }));
 
 /**
  * @swagger
@@ -42,15 +42,7 @@ router.use(express.urlencoded({extended: true}));
  *       content:
  *         application/json:
  *           schema:
- *             type: object
- *             properties:
- *               name:
- *                 type: string
- *               email:
- *                 type: string
- *                 format: email
- *               message:
- *                 type: string
+ *             $ref: '#/components/schemas/Contact'
  *     responses:
  *       '200':
  *         description: Message sent successfully
@@ -61,4 +53,20 @@ router.use(express.urlencoded({extended: true}));
  */
 
 router.post('/contact', contactForm);
+
+/**
+ * @swagger
+ * /api/contact/all:
+ *   get:
+ *     summary: Get all contacts
+ *     tags: [Contact Form]
+ *     responses:
+ *       '200':
+ *         description: A list of contacts retrieved successfully
+ *       '500':
+ *         description: Server error
+ */
+
+router.get('/contact/all', getAllContacts);
+
 export default router;
