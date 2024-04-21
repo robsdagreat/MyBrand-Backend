@@ -7,7 +7,7 @@ const commentSchema = new Schema({
   comment: { type: String, required: true },
 }, { timestamps: true });
 
-export const CommentModel: Model<IComment> = model<IComment>("Comment", commentSchema);
+export const CommentModels: Model<IComment> = model<IComment>("Comment", commentSchema);
 
 const blogSchema = new Schema({
   author: { type: String, default: 'Robert' },
