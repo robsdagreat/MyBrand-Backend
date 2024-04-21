@@ -26,6 +26,9 @@ const updateBlogSchema = Joi.object({
     story: Joi.string().optional(),
     image: Joi.string().optional(),
 });
+// interface AuthenticatedRequestWithUsername extends AuthenticatedRequest {
+//     username: string;
+//   }
 const createBlog = async (req, res) => {
     try {
         const { error, value } = blogValidationSchema.validate(req.body);
@@ -115,16 +118,22 @@ const deleteBlog = async (req, res) => {
 };
 const addCommentToBlog = async (req, res) => {
     try {
-        const { params: { id } } = req;
-        const { userId } = req;
-        const body = req.body;
+        const { id } = req.params;
+        const { userId, username, comment } = req.body;
         const blog = await Blog.findById(id);
         if (!blog) {
             res.status(404).json({ message: 'Blog not found!' });
         }
         else {
-            const comment = { ...body, user: userId };
-            blog.comments.push(comment);
+            const CommentModel = Blog.base.models.comments;
+            const newComment = new CommentModel({
+                user: userId,
+                username: username,
+                comment: comment,
+                createdAt: new Date(),
+                updatedAt: new Date(),
+            });
+            blog.comments.push(newComment);
             const updatedBlog = await blog.save();
             res.status(201).json({ message: 'Comment added successfully', blog: updatedBlog });
         }
