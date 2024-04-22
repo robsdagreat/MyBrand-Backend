@@ -4,6 +4,7 @@ const commentSchema = new Schema({
     username: { type: String, required: true },
     comment: { type: String, required: true },
 }, { timestamps: true });
+export const CommentModels = model("Comment", commentSchema);
 const blogSchema = new Schema({
     author: { type: String, default: 'Robert' },
     title: { type: String, required: true },

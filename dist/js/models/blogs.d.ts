@@ -21,10 +21,11 @@
 /// <reference types="mongoose/types/utility.js" />
 /// <reference types="mongoose/types/validation.js" />
 /// <reference types="mongoose/types/virtuals.js" />
-/// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype.js" />
-import { IBlog } from "../types/blogs.js";
-declare const _default: import("mongoose").Model<IBlog, {}, {}, {}, import("mongoose").Document<unknown, {}, IBlog> & IBlog & {
+import { Model } from "mongoose";
+import { IComment, IBlog } from "../types/blogs.js";
+export declare const CommentModels: Model<IComment>;
+declare const _default: Model<IBlog, {}, {}, {}, import("mongoose").Document<unknown, {}, IBlog> & IBlog & {
     _id: import("mongoose").Types.ObjectId;
 }, any>;
 export default _default;
