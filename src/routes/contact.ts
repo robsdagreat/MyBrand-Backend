@@ -1,5 +1,7 @@
 import express, { Router } from "express";
 import { getAllContacts, contactForm } from "../controllers/contact.js";
+import AuthenticateAdmin from '../middlewares/adminAuth.js';
+
 
 const router: Router = express.Router();
 
@@ -67,6 +69,6 @@ router.post('/contact', contactForm);
  *         description: Server error
  */
 
-router.get('/contact/all', getAllContacts);
+router.get('/contact/all',AuthenticateAdmin, getAllContacts);
 
 export default router;

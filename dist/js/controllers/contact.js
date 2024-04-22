@@ -20,5 +20,15 @@ const contactForm = async (req, res) => {
         res.status(500).json({ message: 'Server Error' });
     }
 };
-export default contactForm;
+const getAllContacts = async (req, res) => {
+    try {
+        const allContacts = await Message.find();
+        res.status(200).json({ message: 'Queries retrieved successfully!', Queries: allContacts });
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server Error' });
+    }
+};
+export { getAllContacts, contactForm };
 //# sourceMappingURL=contact.js.map
