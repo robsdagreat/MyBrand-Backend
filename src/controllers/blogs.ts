@@ -169,15 +169,13 @@ const addCommentToBlog = async (req: AuthenticatedRequest, res: Response): Promi
       if (!blog) {
         res.status(404).json({ message: 'Blog not found!' });
       } else {
-        const newComment = new CommentModels({
+        const newComment = await CommentModels.create({
           user: userId,
           username,
           comment,
-          createdAt: new Date(),
-          updatedAt: new Date(),
         });
   
-        blog.comments.push(newComment);
+        blog.comments.push(newComment._id);
         const updatedBlog: IBlog = await blog.save();
         res.status(201).json({ message: 'Comment added successfully', blog: updatedBlog });
       }
