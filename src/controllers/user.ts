@@ -63,7 +63,7 @@ if (!authHeader) {
 }
 
 const token = authHeader.split(' ')[1];
-
+    
     
     const decodedToken = jwt.verify(token, jwtSecretKey)as JwtPayload;
     const userId = decodedToken.userId;
@@ -172,7 +172,7 @@ const loginUser = async (req: Request, res: Response): Promise<void> => {
     const token = jwt.sign({ name: user.username, userId: user._id, isAdmin: false }, jwtSecretKey, {
       expiresIn: '1h',
     });
-    res.status(200).json({ message: 'Logged in successfully', token });
+    res.status(200).json({ message: 'Logged in successfully', token, userId: user._id, role: 'user' });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Server error' });
