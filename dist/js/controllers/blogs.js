@@ -26,9 +26,6 @@ const updateBlogSchema = Joi.object({
     story: Joi.string().optional(),
     image: Joi.string().optional(),
 });
-// interface AuthenticatedRequestWithUsername extends AuthenticatedRequest {
-//     username: string;
-//   }
 const createBlog = async (req, res) => {
     try {
         const { error, value } = blogValidationSchema.validate(req.body);

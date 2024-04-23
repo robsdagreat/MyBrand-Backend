@@ -1,10 +1,4 @@
 import { Schema, model } from "mongoose";
-const commentSchema = new Schema({
-    user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-    username: { type: String, required: true },
-    comment: { type: String, required: true },
-}, { timestamps: true });
-export const CommentModels = model("Comment", commentSchema);
 const blogSchema = new Schema({
     author: { type: String, default: 'Robert' },
     title: { type: String, required: true },
@@ -12,7 +6,7 @@ const blogSchema = new Schema({
     image: { type: String, required: true },
     date: { type: Date, default: Date.now },
     likes: { type: [String], default: [] },
-    comments: { type: [commentSchema], default: [] },
+    comments: { type: [{ type: Schema.Types.ObjectId, ref: 'Comment' }], default: [] },
 }, { timestamps: true });
 export default model("blogs", blogSchema);
 //# sourceMappingURL=blogs.js.map

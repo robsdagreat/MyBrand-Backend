@@ -1,12 +1,6 @@
 import { Document } from "mongoose";
+import IComment from '../types/comments.js'
 
-export interface IComment extends Document {
-    user?: string;
-    username: string;
-    comment: string;
-    createdAt: Date;
-    updatedAt: Date;
-  }
 
 export interface IBlog extends Document {
   author: string;

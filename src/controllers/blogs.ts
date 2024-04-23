@@ -1,13 +1,12 @@
 import { Request, Response } from "express";
 import Blog from '../models/blogs.js'
 import { IBlog } from "../types/blogs.js";
-import {CommentModels} from '../models/blogs.js'
+import {CommentModels} from '../models/comment.js'
 import Joi from "joi";
 import multer from 'multer';
 import { CloudinaryStorage } from 'multer-storage-cloudinary';
 import { v2 as cloudinary } from 'cloudinary';
-import { IComment } from '../types/blogs.js';
-import { Model } from 'mongoose';
+
 
 const storage = new CloudinaryStorage({
   cloudinary,
@@ -43,9 +42,6 @@ interface AuthenticatedRequest extends Request {
     username?: string;
 }
 
-// interface AuthenticatedRequestWithUsername extends AuthenticatedRequest {
-//     username: string;
-//   }
 
 
 const createBlog= async (req:Request, res:Response): Promise<void> =>{
