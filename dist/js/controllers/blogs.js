@@ -1,4 +1,5 @@
 import Blog from '../models/blogs.js';
+import { CommentModels } from '../models/comment.js';
 import Joi from "joi";
 import multer from 'multer';
 import { CloudinaryStorage } from 'multer-storage-cloudinary';
@@ -122,15 +123,12 @@ const addCommentToBlog = async (req, res) => {
             res.status(404).json({ message: 'Blog not found!' });
         }
         else {
-            const CommentModel = Blog.base.models.comments;
-            const newComment = new CommentModel({
+            const newComment = await CommentModels.create({
                 user: userId,
-                username: username,
-                comment: comment,
-                createdAt: new Date(),
-                updatedAt: new Date(),
+                username,
+                comment,
             });
-            blog.comments.push(newComment);
+            blog.comments.push(newComment._id);
             const updatedBlog = await blog.save();
             res.status(201).json({ message: 'Comment added successfully', blog: updatedBlog });
         }

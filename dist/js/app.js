@@ -10,6 +10,7 @@ import swaggerUi from 'swagger-ui-express';
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerOptions from './swagger.js';
 import bodyParser from 'body-parser';
+import { CommentModels } from './models/comment.js';
 dotenv.config();
 const app = express();
 app.use(cors());
@@ -25,6 +26,7 @@ mongoose.connect(uri)
     .then(() => {
     app.listen(PORT, () => {
         console.log(`Server running on port: ${PORT}, connected to the Database!`);
+        console.log("type of commentModels:", typeof CommentModels);
     });
 })
     .catch((error) => {

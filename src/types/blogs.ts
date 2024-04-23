@@ -9,5 +9,4 @@ export interface IBlog extends Document {
   image: string;
   date: Date;
   likes: string[];
-  comments: IComment[];
 }

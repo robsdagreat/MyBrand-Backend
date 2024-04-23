@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import Blog from '../models/blogs.js'
 import { IBlog } from "../types/blogs.js";
-import {CommentModels} from '../models/comment.js'
+import { CommentModels } from '../models/comment.js';
 import Joi from "joi";
 import multer from 'multer';
 import { CloudinaryStorage } from 'multer-storage-cloudinary';
@@ -158,33 +158,6 @@ const deleteBlog = async(req: Request, res: Response): Promise<void> =>{
 
 
 
- 
-
-const addCommentToBlog = async (req: AuthenticatedRequest, res: Response): Promise<void> => {
-    try {
-      const { id } = req.params;
-      const { userId, username, comment } = req.body;
-      const blog: IBlog | null = await Blog.findById(id);
-  
-      if (!blog) {
-        res.status(404).json({ message: 'Blog not found!' });
-      } else {
-        const newComment = await CommentModels.create({
-          user: userId,
-          username,
-          comment,
-        });
-  
-        blog.comments.push(newComment._id);
-        const updatedBlog: IBlog = await blog.save();
-        res.status(201).json({ message: 'Comment added successfully', blog: updatedBlog });
-      }
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: 'Server Error' });
-    }
-  };
-
 
 
 const likeBlog = async (req: AuthenticatedRequest, res: Response): Promise<void> => {
@@ -214,4 +187,4 @@ const likeBlog = async (req: AuthenticatedRequest, res: Response): Promise<void>
 
 
           
-export {deleteBlog,getAllBlogs, updateBlog,addCommentToBlog ,likeBlog, getBlog, createBlog, upload }
+export {deleteBlog,getAllBlogs, updateBlog ,likeBlog, getBlog, createBlog, upload }
