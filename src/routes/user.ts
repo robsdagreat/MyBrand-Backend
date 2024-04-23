@@ -21,6 +21,13 @@ router.use(express.json());
  *     parameters:
  *       - in: path
  *         name: id
+ *         description: User ID
+ *         required: true
+ *         schema:
+ *           type: string
+ *       - in: header
+ *         name: Authorization
+ *         description: Bearer token
  *         required: true
  *         schema:
  *           type: string
