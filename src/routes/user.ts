@@ -39,7 +39,7 @@ router.use(express.json());
  *       '500':
  *         description: Server error
  */
-router.get('/user/:id', getUserById);
+router.get('/user/:id', getUserById);   
 
 /**
  * @swagger
