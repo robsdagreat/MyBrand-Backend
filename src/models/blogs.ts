@@ -1,6 +1,6 @@
 import { Schema, model, Model } from "mongoose";
 import { IBlog } from "../types/blogs.js";
-import { CommentModels } from "../models/comment.js";
+
 
 const blogSchema = new Schema({
   author: { type: String, default: 'Robert' },

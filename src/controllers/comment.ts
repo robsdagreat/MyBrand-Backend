@@ -1,5 +1,5 @@
 // controllers/comments.js
-import { CommentModels } from "../models/comment.js";
+import CommentModels  from "../models/comment.js";
 import { Request, Response } from "express"; 
 
 const createComment = async(req: Request, res: Response): Promise<void> =>  {

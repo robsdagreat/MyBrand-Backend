@@ -11,7 +11,7 @@ import swaggerUi from 'swagger-ui-express';
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerOptions from './swagger.js';
 import bodyParser from 'body-parser';
-import { CommentModels } from './models/comment.js';
+
 
 dotenv.config();
 

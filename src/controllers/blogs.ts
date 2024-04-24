@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import Blog from '../models/blogs.js'
 import { IBlog } from "../types/blogs.js";
-import { CommentModels } from '../models/comment.js';
 import Joi from "joi";
 import multer from 'multer';
 import { CloudinaryStorage } from 'multer-storage-cloudinary';
@@ -25,7 +24,6 @@ const blogValidationSchema = Joi.object({
     story: Joi.string().required(),
     image: Joi.string().required(),
     date: Joi.date().default(Date.now()),
-    comments: Joi.array().items(Joi.string().required()),
     likes: Joi.array().items(Joi.string()), 
 });
 
