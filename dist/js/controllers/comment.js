@@ -1,12 +1,15 @@
+// controllers/comments.js
 import CommentModels from "../models/comment.js";
 const createComment = async (req, res) => {
     try {
-        const { user, comment, blogId } = req.body;
-        const newComment = await CommentModels.create({
+        const { user, comment } = req.body;
+        const { blogId } = req.params;
+        const Comments = new CommentModels({
             user,
             comment,
             blogId,
         });
+        const newComment = await Comments.save();
         res.status(201).json(newComment);
     }
     catch (error) {
