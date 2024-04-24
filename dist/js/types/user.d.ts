@@ -22,9 +22,10 @@
 /// <reference types="mongoose/types/validation" />
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose/types/inferschematype" />
-import { Document } from "mongoose";
+import { Document } from 'mongoose';
 export default interface IUser extends Document {
     username: string;
     email: string;
     password: string;
+    userId: string;
 }

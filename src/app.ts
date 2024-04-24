@@ -35,8 +35,6 @@ mongoose.connect(uri)
   .then(() => {
     app.listen(PORT, () => {
       console.log(`Server running on port: ${PORT}, connected to the Database!`);
-      console.log("type of commentModels:",typeof CommentModels);
-
     });
   })
   .catch((error) => {
