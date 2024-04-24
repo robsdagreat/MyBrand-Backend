@@ -24,9 +24,12 @@
 /// <reference types="mongoose/types/inferschematype" />
 import { Document } from "mongoose";
 export interface IComment extends Document {
-    user?: string;
-    username: string;
+    user: {
+        userId: string;
+        username: string;
+    };
     comment: string;
+    blogId: string;
     createdAt: Date;
     updatedAt: Date;
 }

@@ -1,5 +1,6 @@
 import express from "express";
 import { createComment, getCommentsByBlogId } from "../controllers/comment.js";
+import authenticateUser from '../middlewares/authenticate.js';
 const router = express.Router();
 router.use(express.json());
 /**
@@ -39,7 +40,7 @@ router.use(express.json());
  *       '500':
  *         description: Server error
  */
-router.post("/:blogId/comments/add/", createComment);
+router.post("/:blogId/comments/add/", authenticateUser, createComment);
 /**
  * @swagger
  * /api/comments/{blogId}:
