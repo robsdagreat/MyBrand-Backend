@@ -21,10 +21,10 @@
 /// <reference types="mongoose/types/utility.js" />
 /// <reference types="mongoose/types/validation.js" />
 /// <reference types="mongoose/types/virtuals.js" />
+/// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype.js" />
-import { Model } from "mongoose";
 import { IComment } from "../types/comments.js";
-declare const _default: Model<IComment, {}, {}, {}, import("mongoose").Document<unknown, {}, IComment> & IComment & {
+declare const _default: import("mongoose").Model<IComment, {}, {}, {}, import("mongoose").Document<unknown, {}, IComment> & IComment & {
     _id: import("mongoose").Types.ObjectId;
 }, any>;
 export default _default;
