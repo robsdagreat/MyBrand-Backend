@@ -1,5 +1,5 @@
 import express from 'express';
-import { deleteBlog, updateBlog, addCommentToBlog, likeBlog, getBlog, createBlog, getAllBlogs, upload } from '../controllers/blogs.js';
+import { deleteBlog, updateBlog, likeBlog, getBlog, createBlog, getAllBlogs, upload } from '../controllers/blogs.js';
 import authenticateUser from '../middlewares/authenticate.js';
 import AuthenticateAdmin from '../middlewares/adminAuth.js';
 const blogRouter = express.Router();
@@ -70,45 +70,6 @@ blogRouter.use(express.json());
  *
  */
 blogRouter.get("/blog/:id", getBlog);
-/**
- * @swagger
- * /api/blog/{id}/comment:
- *   post:
- *     summary: Add a comment to a blog
- *     tags: [Blogs]
- *     security:
- *       - BearerAuth: []
- *     parameters:
- *       - in: path
- *         name: id
- *         schema:
- *           type: string
- *         required: true
- *         description: ID of the blog
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               comment:
- *                 type: string
- *             required:
- *               - comment
- *     responses:
- *       '201':
- *         description: Comment added successfully
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Blog'
- *       '404':
- *         description: Blog not found
- *       '500':
- *         description: Server error
- */
-blogRouter.post('/blog/:id/comment', authenticateUser, addCommentToBlog);
 /**
  * @swagger
  * /api/blog/{id}/likes:

@@ -23,7 +23,6 @@
 /// <reference types="mongoose/types/virtuals.js" />
 /// <reference types="mongoose/types/inferschematype.js" />
 import { Document } from "mongoose";
-import IComment from '../types/comments.js';
 export interface IBlog extends Document {
     author: string;
     title: string;
@@ -31,5 +30,4 @@ export interface IBlog extends Document {
     image: string;
     date: Date;
     likes: string[];
-    comments: IComment[];
 }

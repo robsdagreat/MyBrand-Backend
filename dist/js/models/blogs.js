@@ -5,8 +5,7 @@ const blogSchema = new Schema({
     story: { type: String, required: true },
     image: { type: String, required: true },
     date: { type: Date, default: Date.now },
-    likes: { type: [String], default: [] },
-    comments: { type: [{ type: Schema.Types.ObjectId, ref: 'Comment' }], default: [] },
+    likes: { type: [String], default: [] }
 }, { timestamps: true });
 export default model("blogs", blogSchema);
 //# sourceMappingURL=blogs.js.map

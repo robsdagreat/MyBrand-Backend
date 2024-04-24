@@ -1,5 +1,4 @@
 import Blog from '../models/blogs.js';
-import { CommentModels } from '../models/comment.js';
 import Joi from "joi";
 import multer from 'multer';
 import { CloudinaryStorage } from 'multer-storage-cloudinary';
@@ -114,30 +113,6 @@ const deleteBlog = async (req, res) => {
         res.status(500).json({ message: "Server error" });
     }
 };
-const addCommentToBlog = async (req, res) => {
-    try {
-        const { id } = req.params;
-        const { userId, username, comment } = req.body;
-        const blog = await Blog.findById(id);
-        if (!blog) {
-            res.status(404).json({ message: 'Blog not found!' });
-        }
-        else {
-            const newComment = await CommentModels.create({
-                user: userId,
-                username,
-                comment,
-            });
-            blog.comments.push(newComment._id);
-            const updatedBlog = await blog.save();
-            res.status(201).json({ message: 'Comment added successfully', blog: updatedBlog });
-        }
-    }
-    catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Server Error' });
-    }
-};
 const likeBlog = async (req, res) => {
     try {
         const { params: { id }, userId } = req;
@@ -163,5 +138,5 @@ const likeBlog = async (req, res) => {
         res.status(500).json({ message: 'Server error' });
     }
 };
-export { deleteBlog, getAllBlogs, updateBlog, addCommentToBlog, likeBlog, getBlog, createBlog, upload };
+export { deleteBlog, getAllBlogs, updateBlog, likeBlog, getBlog, createBlog, upload };
 //# sourceMappingURL=blogs.js.map

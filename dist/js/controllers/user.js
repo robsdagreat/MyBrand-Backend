@@ -123,7 +123,7 @@ const loginUser = async (req, res) => {
         const token = jwt.sign({ name: user.username, userId: user._id, isAdmin: false }, jwtSecretKey, {
             expiresIn: '1h',
         });
-        res.status(200).json({ message: 'Logged in successfully', token });
+        res.status(200).json({ message: 'Logged in successfully', token, userId: user._id, role: 'user' });
     }
     catch (error) {
         console.error(error);
