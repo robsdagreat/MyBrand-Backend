@@ -1,17 +1,15 @@
-// controllers/comments.js
 import CommentModels  from "../models/comment.js";
 import { Request, Response } from "express"; 
 
 const createComment = async(req: Request, res: Response): Promise<void> =>  {
   try {
-    const { userId, username, comment, blogId } = req.body;
+    const { user, comment, blogId } = req.body;
     const newComment = await CommentModels.create({
-      user: userId,
-      username,
+      user,
       comment,
       blogId,
     });
-    res.status(201).json(newComment);
+    res.status(201).json(newComment);   
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server Error" });

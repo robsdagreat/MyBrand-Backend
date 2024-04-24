@@ -1,11 +1,9 @@
-// controllers/comments.js
-import { CommentModels } from "../models/comment.js";
+import CommentModels from "../models/comment.js";
 const createComment = async (req, res) => {
     try {
-        const { userId, username, comment, blogId } = req.body;
+        const { user, comment, blogId } = req.body;
         const newComment = await CommentModels.create({
-            user: userId,
-            username,
+            user,
             comment,
             blogId,
         });

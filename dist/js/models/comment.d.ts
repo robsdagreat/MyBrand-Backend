@@ -24,4 +24,7 @@
 /// <reference types="mongoose/types/inferschematype.js" />
 import { Model } from "mongoose";
 import { IComment } from "../types/comments.js";
-export declare const CommentModels: Model<IComment>;
+declare const _default: Model<IComment, {}, {}, {}, import("mongoose").Document<unknown, {}, IComment> & IComment & {
+    _id: import("mongoose").Types.ObjectId;
+}, any>;
+export default _default;

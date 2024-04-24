@@ -1,8 +1,11 @@
 import { Schema, model } from "mongoose";
 const commentSchema = new Schema({
-    user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-    username: { type: String, required: true },
+    user: {
+        userId: { type: String, required: true },
+        username: { type: String, required: true },
+    },
     comment: { type: String, required: true },
+    blogId: { type: Schema.Types.ObjectId, ref: 'Blog', required: true },
 }, { timestamps: true });
-export const CommentModels = model("Comment", commentSchema);
+export default model("Comment", commentSchema);
 //# sourceMappingURL=comment.js.map

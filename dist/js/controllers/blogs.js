@@ -18,7 +18,6 @@ const blogValidationSchema = Joi.object({
     story: Joi.string().required(),
     image: Joi.string().required(),
     date: Joi.date().default(Date.now()),
-    comments: Joi.array().items(Joi.string().required()),
     likes: Joi.array().items(Joi.string()),
 });
 const updateBlogSchema = Joi.object({
