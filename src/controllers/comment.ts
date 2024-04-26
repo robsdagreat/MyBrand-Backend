@@ -1,4 +1,3 @@
-// controllers/comments.js
 import CommentModels from "../models/comment.js";
 import { Request, Response } from "express";
 import IComment from "../types/comments.js";
