@@ -1,5 +1,5 @@
 import express, { Router, Request, Response, NextFunction } from 'express';
-import authMiddleware from '../middlewares/dashboard';
+import authMiddleware from '../middlewares/dashboard.js';
 
 const router: Router = express.Router();
 

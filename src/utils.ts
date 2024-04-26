@@ -11,4 +11,4 @@ const adminEmail= "rwibutsorobert12@gmail.com";
 const adminPass = "Dreamb4rever";
 
 
-export const jwtSecretKey = generateJwtSecretKey(16);
+export const jwtSecretKey = generateJwtSecretKey(16);   

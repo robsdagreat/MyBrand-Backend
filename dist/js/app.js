@@ -7,6 +7,8 @@ import userRoutes from './routes/user.js';
 import contactRoutes from './routes/contact.js';
 import adminRoutes from './routes/admin.js';
 import commentRoutes from './routes/comment.js';
+import logoutRoutes from './controllers/logout.js';
+import dashboardRoutes from './routes/protected.js';
 import swaggerUi from 'swagger-ui-express';
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerOptions from './swagger.js';
@@ -20,7 +22,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 app.use(bodyParser.json({ limit: '5mb' }));
 app.use(bodyParser.urlencoded({ limit: '5mb', extended: true }));
 app.use(express.json());
-app.use('/api', blogRouters, userRoutes, contactRoutes, adminRoutes, commentRoutes);
+app.use('/api', blogRouters, userRoutes, contactRoutes, adminRoutes, commentRoutes, logoutRoutes, dashboardRoutes);
 const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@cluster10.p45jk48.mongodb.net/?retryWrites=true&w=majority&appName=Cluster10`;
 mongoose.connect(uri)
     .then(() => {

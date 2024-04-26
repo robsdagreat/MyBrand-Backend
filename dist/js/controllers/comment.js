@@ -1,4 +1,3 @@
-// controllers/comments.js
 import CommentModels from "../models/comment.js";
 const createComment = async (req, res) => {
     try {

@@ -22,7 +22,7 @@ const authMiddleware = (req: RequestWithUser, res: Response, next: NextFunction)
       return res.redirect(req.originalUrl);
     }
 
-    const isAdminLoggedIn = req.headers.admintoken || req.cookies.admintoken;
+    const isAdminLoggedIn = req.headers.adminToken || req.cookies.adminToken;
 
     if (!isAdminLoggedIn) {
       return res.redirect(req.originalUrl);

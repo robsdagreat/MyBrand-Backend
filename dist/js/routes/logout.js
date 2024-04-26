@@ -1,21 +1,18 @@
-import express, { Router } from 'express';
+import express from 'express';
 import logout from '../controllers/logout';
-
-const router: Router = express.Router();
+const router = express.Router();
 router.use(express.json());
-
 /**
  * @swagger
  * tags:
  *   name: Authentication
  *   description: Operations related to authentication
  */
-
 /**
  * @swagger
  * /api/user/logout:
  *   post:
- *     summary: User logout    
+ *     summary: User logout
  *     tags: [Authentication]
  *     responses:
  *       '200':
@@ -26,7 +23,6 @@ router.use(express.json());
  *         description: Server error
  */
 router.post('/user/logout', logout);
-
 /**
  * @swagger
  * /api/admin/logout:
@@ -42,5 +38,5 @@ router.post('/user/logout', logout);
  *         description: Server error
  */
 router.post('/admin/logout', logout);
-
 export default router;
+//# sourceMappingURL=logout.js.map
